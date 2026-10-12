@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+tensorflow
+scikit-learn
+pydantic
+numpy
+sqlalchemy
+pytest
+httpx
+pandas
+joblib
+beautifulsoup4

@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fake Post & Image Credibility Detector</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg-main: #0b0f14;
+        --bg-card: rgba(22, 27, 34, 0.75);
+        --bg-card-sub: rgba(30, 38, 48, 0.55);
+        --border-color: rgba(255, 255, 255, 0.08);
+        --border-focus: rgba(52, 211, 153, 0.4);
+        --text-primary: #f1f5f9;
+        --text-secondary: #94a3b8;
+        --text-muted: #64748b;
+        --accent-green: #10b981;
+        --accent-green-glow: rgba(16, 185, 129, 0.25);
+        --accent-red: #f43f5e;
+        --accent-red-glow: rgba(244, 63, 94, 0.25);
+        --accent-cyan: #06b6d4;
+        --radius-sm: 8px;
+        --radius-md: 12px;
+        --radius-lg: 16px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        width: 360px;
+        min-height: 480px;
+        background: var(--bg-main);
+        color: var(--text-primary);
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        padding: 16px;
+        overflow-x: hidden;
+      }
+
+      /* Background ambient gradient glow */
+      .glow-blob {
+        position: fixed;
+        top: -60px;
+        right: -60px;
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* Header */
+      header {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 14px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-icon {
+        width: 34px;
+        height: 34px;
+        background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        color: #0b0f14;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+      }
+
+      .brand-title h1 {
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: -0.2px;
+        color: #fff;
+      }
+
+      .brand-title span {
+        font-size: 10.5px;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      .api-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 3px 8px;
+        border-radius: 9999px;
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.25);
+        color: var(--accent-green);
+        font-size: 10px;
+        font-weight: 600;
+      }
+
+      .api-pill.offline {
+        background: rgba(244, 63, 94, 0.1);
+        border-color: rgba(244, 63, 94, 0.25);
+        color: var(--accent-red);
+      }
+
+      .pulse-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: currentColor;
+        animation: pulse 1.8s infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.4; transform: scale(0.85); }
+      }
+
+      /* Post Context Card */
+      .context-card {
+        position: relative;
+        z-index: 1;
+        background: var(--bg-card);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        padding: 12px;
+        margin-bottom: 12px;
+        transition: border-color 160ms ease;
+      }
+
+      .context-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 6px;
+        font-size: 11px;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-weight: 700;
+      }
+
+      .post-id-badge {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 10px;
+        color: var(--accent-cyan);
+        background: rgba(6, 182, 212, 0.1);
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+
+      .post-snippet {
+        font-size: 12px;
+        color: var(--text-secondary);
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* Primary Action Button */
+      .btn-scan {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        padding: 12px 16px;
+        border: none;
+        border-radius: var(--radius-md);
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: #ffffff;
+        font-family: inherit;
+        font-size: 13.5px;
+        font-weight: 700;
+        letter-spacing: 0.1px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25);
+        transition: all 160ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .btn-scan:hover:not(:disabled) {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+        filter: brightness(1.05);
+      }
+
+      .btn-scan:active:not(:disabled) {
+        transform: translateY(1px);
+      }
+
+      .btn-scan:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+
+      /* Spinner */
+      .spinner {
+        width: 16px;
+        height: 16px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+        display: none;
+      }
+
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+
+      /* Result Container */
+      .result-container {
+        position: relative;
+        z-index: 1;
+        margin-top: 14px;
+        display: none;
+        animation: fadeSlideUp 220ms ease-out forwards;
+      }
+
+      @keyframes fadeSlideUp {
+        from { opacity: 0; transform: translateY(6px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .verdict-banner {
+        border-radius: var(--radius-md);
+        padding: 14px;
+        text-align: center;
+        margin-bottom: 12px;
+        border: 1px solid transparent;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .verdict-banner.real {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(6, 95, 70, 0.2));
+        border-color: rgba(16, 185, 129, 0.4);
+        box-shadow: 0 4px 20px var(--accent-green-glow);
+      }
+
+      .verdict-banner.fake {
+        background: linear-gradient(135deg, rgba(244, 63, 94, 0.15), rgba(153, 27, 27, 0.2));
+        border-color: rgba(244, 63, 94, 0.4);
+        box-shadow: 0 4px 20px var(--accent-red-glow);
+      }
+
+      .verdict-badge-title {
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: -0.3px;
+        margin-bottom: 4px;
+      }
+
+      .verdict-banner.real .verdict-badge-title { color: #34d399; }
+      .verdict-banner.fake .verdict-badge-title { color: #fb7185; }
+
+      .verdict-sub {
+        font-size: 11.5px;
+        color: var(--text-secondary);
+      }
+
+      /* Meter bar */
+      .confidence-meter {
+        margin: 10px 0 4px;
+      }
+
+      .meter-track {
+        height: 6px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 9999px;
+        overflow: hidden;
+      }
+
+      .meter-fill {
+        height: 100%;
+        border-radius: 9999px;
+        width: 0%;
+        transition: width 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      .verdict-banner.real .meter-fill {
+        background: linear-gradient(90deg, #10b981, #34d399);
+      }
+
+      .verdict-banner.fake .meter-fill {
+        background: linear-gradient(90deg, #f43f5e, #fb7185);
+      }
+
+      .meter-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 10.5px;
+        color: var(--text-muted);
+        margin-top: 4px;
+      }
+
+      /* Evidence Grid */
+      .evidence-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      .evidence-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-sm);
+        padding: 9px 11px;
+      }
+
+      .evidence-card span {
+        display: block;
+        font-size: 10px;
+        color: var(--text-muted);
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 2px;
+      }
+
+      .evidence-card strong {
+        font-size: 13.5px;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      /* Model Architecture info footer */
+      .model-tag {
+        background: var(--bg-card-sub);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-sm);
+        padding: 8px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 10.5px;
+        color: var(--text-muted);
+        margin-bottom: 12px;
+      }
+
+      .model-tag strong {
+        color: #38bdf8;
+        font-weight: 600;
+      }
+
+      /* Analytics Drawer Toggle */
+      .drawer-toggle {
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        font-family: inherit;
+        font-size: 11px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        width: 100%;
+        padding: 6px 0;
+        transition: color 140ms ease;
+      }
+
+      .drawer-toggle:hover {
+        color: var(--text-secondary);
+      }
+
+      .analytics-box {
+        display: none;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-sm);
+        padding: 10px;
+        margin-top: 8px;
+        font-size: 11px;
+      }
+
+      .analytics-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 3px 0;
+        color: var(--text-secondary);
+      }
+
+      .analytics-row strong {
+        color: #fff;
+      }
+
+      /* Error notice */
+      .error-card {
+        display: none;
+        background: rgba(244, 63, 94, 0.1);
+        border: 1px solid rgba(244, 63, 94, 0.3);
+        border-radius: var(--radius-md);
+        padding: 11px;
+        color: #fda4af;
+        font-size: 11.5px;
+        line-height: 1.4;
+        margin-top: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="glow-blob" aria-hidden="true"></div>
+
+    <header>
+      <div class="brand">
+        <div class="logo-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <div class="brand-title">
+          <h1>Fake Content Detector</h1>
+          <span>Joint Bi-LSTM Deep Credibility</span>
+        </div>
+      </div>
+      <div id="api-status-pill" class="api-pill" title="Checking local backend connection">
+        <span class="pulse-dot"></span>
+        <span id="api-status-text">Connecting</span>
+      </div>
+    </header>
+
+    <div class="context-card" id="context-card">
+      <div class="context-header">
+        <span>Target Post</span>
+        <span id="post-id-display" class="post-id-badge">Detecting...</span>
+      </div>
+      <p id="post-snippet-text" class="post-snippet">Navigate to an X / Twitter post to analyze propagation and sentiment.</p>
+    </div>
+
+    <button id="scan-button" class="btn-scan" type="button">
+      <span class="spinner" id="btn-spinner"></span>
+      <span id="btn-label">Analyze Post Credibility</span>
+    </button>
+
+    <div id="error-card" class="error-card" role="alert"></div>
+
+    <section id="result-section" class="result-container" aria-live="polite">
+      <div id="verdict-banner" class="verdict-banner">
+        <div id="verdict-title" class="verdict-badge-title">REAL CONTENT</div>
+        <div id="verdict-sub" class="verdict-sub">High probability of genuine organic propagation</div>
+        
+        <div class="confidence-meter">
+          <div class="meter-track">
+            <div id="meter-fill" class="meter-fill"></div>
+          </div>
+          <div class="meter-labels">
+            <span>Confidence</span>
+            <strong id="confidence-text">92.2%</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="evidence-grid">
+        <div class="evidence-card">
+          <span>Author Verified</span>
+          <strong id="ev-verified">-</strong>
+        </div>
+        <div class="evidence-card">
+          <span>Likes / Retweets</span>
+          <strong id="ev-engagement">-</strong>
+        </div>
+        <div class="evidence-card">
+          <span>Comments Read</span>
+          <strong id="ev-comments">-</strong>
+        </div>
+        <div class="evidence-card">
+          <span>Text Signal Source</span>
+          <strong id="ev-source">-</strong>
+        </div>
+      </div>
+
+      <div class="model-tag">
+        <span>Architecture</span>
+        <strong>Joint Bi-LSTM (90.9% Acc)</strong>
+      </div>
+    </section>
+
+    <div style="margin-top: 10px;">
+      <button id="toggle-analytics" class="drawer-toggle" type="button">
+        <span>📊 View Server Analytics</span>
+        <span id="drawer-arrow">▼</span>
+      </button>
+      <div id="analytics-box" class="analytics-box">
+        <div class="analytics-row"><span>Total Posts Analyzed:</span> <strong id="stat-total">0</strong></div>
+        <div class="analytics-row"><span>Fake Detected:</span> <strong id="stat-fake" style="color:var(--accent-red);">0</strong></div>
+        <div class="analytics-row"><span>Real Confirmed:</span> <strong id="stat-real" style="color:var(--accent-green);">0</strong></div>
+        <div class="analytics-row"><span>Fake Ratio:</span> <strong id="stat-ratio">0%</strong></div>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

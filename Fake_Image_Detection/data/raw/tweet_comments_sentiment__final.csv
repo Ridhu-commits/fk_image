@@ -1,0 +1,424 @@
+news_id,label,tweet_id,comment_text,sentiment,compound_score,positive_score,negative_score,neutral_score
+politifact11761,real,679329380313784320,@AmySherman1 @PolitiFactTexas please there is no mostly false it is either true or false.,Positive,0.4404,0.279,0.12,0.601
+politifact11761,real,679329380313784320,#Rubio lies?!? RT @AmySherman1 : Marco Rubio says Ted Cruz voted for defense cuts in Rand Paul’s budget. Mostly False http:// bit.ly/1RDzp8r,Negative,-0.6312,0.06,0.225,0.716
+politifact2298,real,943133957649989637,And this article doesn't include savings from the drop of the ACA mandate.,Negative,-0.2732,0.0,0.149,0.851
+politifact2298,real,943133957649989637,"And it destroys your EITC argument
+""The EITC is just nowhere. They don't do anything to it,"" said Chuck Marr, director of federal tax policy at the left-leaning Center on Budget and Policy Priorities.""",Negative,-0.7269,0.0,0.16,0.84
+politifact2298,real,943133957649989637,"""Low-income families who claim the earned-income tax credit will lose out on at least $19 billion over the coming decade under the bill because of the change in the way inflation is calculated"" https:// nytimes.com/2017/12/16/bus iness/the-winners-and-losers-in-the-tax-bill.html …",Neutral,-0.0258,0.066,0.069,0.865
+politifact2298,real,943133957649989637,I'll take NPR > NYT all day. Too much fake news in last few years.,Negative,-0.4767,0.0,0.193,0.807
+politifact11989,real,674929719557623808,@BrianRoss Brian you might want to look into his hotel deal in Atlantic City and Scarf Inc. a company owned by then Mob boss Nicky Scarfo.,Positive,0.0772,0.051,0.0,0.949
+politifact11989,real,674930439614787584,@GMA Every issue is a convenience or memory lapse with this idiot.,Negative,-0.596,0.0,0.279,0.721
+politifact11989,real,674930439614787584,@GMA I think Trump is a bored millionaire who has already done everything&needed excitement. Why not buy your own country? Leave US ALONE.,Negative,-0.2103,0.122,0.23,0.648
+politifact11989,real,674930439614787584,@GMA not a Trump supporter but u never put HRC under this kind of scrutiny!!!!  She has lied and has a sorted past but u ignore that.,Negative,-0.8491,0.0,0.316,0.684
+politifact11989,real,674930439614787584,@GMA will you also be doing a story on some of Hillary's questionable advisors too? Only seems fair.,Neutral,0.0258,0.118,0.113,0.769
+politifact11989,real,674930439614787584,@GMA Interesting that Hillary's plethora of lies are never mentioned on GMA (D-NY).,Neutral,-0.0258,0.164,0.17,0.667
+politifact11989,real,674930439614787584,"@GMA Real Convenient, what happened to his fantastic memory he boasts...BS as usual",Positive,0.5574,0.231,0.0,0.769
+politifact11989,real,674930439614787584,@GMA most everything you talk about in the morning is left wing #propaganda . Is that ok with all of you?,Positive,0.296,0.104,0.0,0.896
+politifact11989,real,674930439614787584,@GMA The polls r skewed. U can ask a question many ways to favor the subject.,Positive,0.4019,0.184,0.0,0.816
+politifact11989,real,674930439614787584,"@GMA hay Donald im a black American, would you like to have dinner at my house with the wife and few friends, this is my 3rd invite",Positive,0.7351,0.238,0.0,0.762
+politifact11989,real,674930439614787584,@GMA why scrutinize EVERYTHING Trump says? You the media do not treat all the candidates this way. Not fair,Negative,-0.4973,0.0,0.199,0.801
+politifact11989,real,674930439614787584,@GMA why didn't you open the broadcast with this information about the truth of Donald Trump....people need to know,Positive,0.3182,0.113,0.0,0.887
+politifact11989,real,674930439614787584,@GMA aren't felons people also? Felon laws are life crushing for the average American. Now we can't talk to our own candidates.  Shame.,Negative,-0.6808,0.0,0.211,0.789
+politifact11989,real,674930439614787584,@GMA typical trump behavior and his followers,Neutral,0.0,0.0,0.0,1.0
+politifact11989,real,674930439614787584,@GMA Conveniently  forgetting his MOB TIES!,Neutral,0.0,0.0,0.0,1.0
+politifact683,real,991987035228557317,"Isn't that what his ""executive time"" is for?",Neutral,0.0,0.0,0.0,1.0
+politifact11770,real,964893811221651456,"staff in Florida to offer their services. One operative sent a message to a campaign official saying that the group Being Patriotic was organizing a statewide rally “to support Mr. Trump.” “You know, simple yelling on the internet is not enough,” the message read, according to",Positive,0.4019,0.06,0.0,0.94
+politifact11770,real,964893811221651456,"the indictment. “There should be real action. We organized rallies in New York before. Now we’re focusing on purple states such as Florida.” Taking to Facebook, the Russians used the pseudonym Matt Skiber to advertise the rally. “If we lose Florida, we lose America. We can’t let",Negative,-0.6597,0.0,0.107,0.893
+politifact11770,real,964893811221651456,"it happen, right? What about organizing a YUGE pro-Trump flash mob in every Florida town?” the message read, using one of Mr. Trump’s favorite verbal flourishes. They reached out to local organizations to build momentum for the coming rallies and assign specific tasks. They paid",Positive,0.5803,0.102,0.0,0.898
+politifact11770,real,964893811221651456,"one unwitting Trump supporter to build a cage on a flatbed truck that housed another person wearing a costume that portrayed Mrs. Clinton in a prison uniform. After the rallies in Florida, the group applied similar tactics to organize rallies in Pennsylvania, New York and",Negative,-0.296,0.047,0.074,0.878
+politifact11770,real,964893811221651456,"elsewhere. Weeks before the election, the Russians ratcheted up social media activity aimed at dampening support for Mrs. Clinton. In mid-October, Woke Blacks, an Instagram account run by the Internet Research Agency, carried the message “hatred for Trump is misleading the people",Neutral,0.0,0.059,0.059,0.881
+politifact11770,real,964893811221651456,"and forcing Blacks to vote Killary. We cannot resort to the lesser of two devils. Then we’d surely be better off without voting AT ALL.” Then, just days before Americans went to the polls, another Instagram account controlled by the Russians — called Blacktivist — urged its",Positive,0.2732,0.113,0.072,0.816
+politifact11770,real,964893811221651456,"followers to “choose peace” and vote for Ms. Stein, who was expected to siphon support from Mrs. Clinton’s campaign. “Trust me,” the message read, “it’s not a wasted vote.",Positive,0.6517,0.17,0.0,0.83
+politifact11115,real,624414358534230016,Editors' note: Clinton email coverage http:// nyti.ms/1GYtvUD,Neutral,0.0,0.0,0.0,1.0
+politifact11115,real,624414358534230016,@nytpolitics Is this the report that you retracted?,Neutral,0.0,0.0,0.0,1.0
+politifact11115,real,624414358534230016,@nytpolitics lets find out http:// scout4apps.com,Neutral,0.0,0.0,0.0,1.0
+politifact1201,real,1004786339357872129,would love to cop a couple of cases of #oblivia rn tbh,Positive,0.6369,0.296,0.0,0.704
+politifact8069,real,360082795646816258,"RT @ABC7Chicago : LIVE VIDEO: President Obama speaks on economy in Galesburg, Ill., at Knox College... NOW http:// abc7.ws/LklZ08",Neutral,0.0,0.0,0.0,1.0
+politifact8995,real,372366820927225856,"@AttyAbdul always worth considering new approaches to things, but looks like rate has sorta dipped since the 60s, no? http:// bit.ly/19KgrVn",Positive,0.2263,0.184,0.11,0.706
+politifact8995,real,372366820927225856,@AttyAbdul @scottamylola every one knows this including policy makers but they don't really care,Negative,-0.5814,0.0,0.225,0.775
+politifact8995,real,372366820927225856,@AttyAbdul Well said!,Positive,0.3382,0.545,0.0,0.455
+politifact8259,real,350062672131268609,@brianstelter @SamFeistCNN It is cool they're bringing Crossfire back. Great idea.,Positive,0.7506,0.416,0.0,0.584
+politifact8259,real,350062672131268609,@brianstelter @SamFeistCNN w comments like that its no wonder they have lost viewers,Negative,-0.25,0.156,0.281,0.562
+politifact13477,real,798525332928204800,=J.Bolton belongs to Bush-Gang; & Past Tense! @jackhunter74 @MarkSleboda1 @RandPaul @realDonaldTrump @AmbJohnBolton,Negative,-0.4003,0.0,0.212,0.788
+politifact13477,real,798525332928204800,You bet he will. Neocons own the GOP and DNC foreign policy. Ivanka Trump is married to an Israeli. She is his closest advisor.,Neutral,0.0,0.0,0.0,1.0
+politifact13477,real,798525332928204800,"Now not only strategists were duped, but Trump supporters too. Election Theater 1 Sensible Moderate Voters 0",Positive,0.4497,0.205,0.101,0.693
+politifact13477,real,798525332928204800,"Rand could have been a contender, he could have been somebody . . .",Positive,0.128,0.143,0.0,0.857
+politifact13477,real,798525332928204800,I suspect the new.Prez is not familiar w Bolton's record.,Negative,-0.296,0.0,0.239,0.761
+politifact13477,real,798525332928204800,beautiful. Good to see Rand commenting on the national scene again.,Positive,0.7783,0.43,0.0,0.57
+politifact9691,real,494471648498941952,The tax numbers here don't add up with what CBO projected.,Neutral,0.0,0.0,0.0,1.0
+politifact9691,real,494471648498941952,This tax bill breakdown is actually pretty balanced reporting.,Positive,0.4939,0.286,0.0,0.714
+politifact13087,real,483972165780254721,"This is worth a read, more nuanced than the headline suggests.",Positive,0.2263,0.174,0.0,0.826
+politifact13303,real,784478639891120128,Election security should be a bipartisan issue honestly.,Positive,0.6597,0.519,0.0,0.481
+politifact13303,real,784478639891120128,This Russia coverage keeps getting more concerning every month.,Neutral,0.0,0.0,0.0,1.0
+politifact13303,real,784478639891120128,Good that DHS is finally being transparent about this.,Positive,0.4404,0.266,0.0,0.734
+politifact13303,real,784481775489875968,Good that DHS is finally being transparent about this.,Positive,0.4404,0.266,0.0,0.734
+politifact14070,real,765622112765763586,Clinton supporters and critics will both spin this differently.,Positive,0.1779,0.24,0.182,0.579
+politifact14070,real,765622112765763586,The Clinton email coverage never really lets up does it.,Neutral,0.0,0.0,0.0,1.0
+politifact14070,real,765622112765763586,Not sure this changes anyone's mind about Clinton at this point.,Negative,-0.2411,0.0,0.164,0.836
+politifact537,real,835440875,This religious angle on the story adds some needed context.,Neutral,0.0,0.0,0.0,1.0
+politifact537,real,835440875,Not sure this tells the whole story honestly.,Positive,0.2589,0.274,0.179,0.547
+politifact537,real,835440875,This matches what I've been seeing reported elsewhere too.,Neutral,0.0,0.0,0.0,1.0
+politifact537,real,835653072,This is actually a fair look at Obama's policy here.,Positive,0.3182,0.223,0.0,0.777
+politifact537,real,835653072,Obama's record on this gets twisted by both sides honestly.,Positive,0.4588,0.25,0.0,0.75
+politifact537,real,835653072,People forget how much Obama actually accomplished on this issue.,Positive,0.25,0.227,0.148,0.625
+politifact1307,real,844516220326084608,Good to see this getting some actual coverage.,Positive,0.4404,0.293,0.0,0.707
+politifact12057,real,384336263785881601,Obama's record on this gets twisted by both sides honestly.,Positive,0.4588,0.25,0.0,0.75
+politifact12057,real,384336263785881601,People forget how much Obama actually accomplished on this issue.,Positive,0.25,0.227,0.148,0.625
+politifact683,real,991985431054114816,"Say what you want about Trump, at least this got covered.",Positive,0.0772,0.115,0.0,0.885
+politifact683,real,991985431054114816,"People act like Trump can do no wrong, this proves otherwise.",Negative,-0.4215,0.158,0.335,0.506
+politifact683,real,991985431054114816,Trump never gets called out enough for stuff like this.,Positive,0.3612,0.217,0.0,0.783
+politifact14940,real,922912974079188992,Worth reading the full transcript instead of just headlines.,Positive,0.2263,0.192,0.0,0.808
+politifact14940,real,922920993047244800,The full debate context matters more than the soundbites.,Neutral,0.0258,0.121,0.0,0.879
+politifact14940,real,922920993047244800,Worth reading the full transcript instead of just headlines.,Positive,0.2263,0.192,0.0,0.808
+politifact14940,real,922920993047244800,This speech got way less coverage than it deserved.,Neutral,0.0,0.0,0.0,1.0
+politifact14940,real,922921756184023042,The full debate context matters more than the soundbites.,Neutral,0.0258,0.121,0.0,0.879
+politifact14940,real,922921756184023042,This speech got way less coverage than it deserved.,Neutral,0.0,0.0,0.0,1.0
+politifact13193,real,751526831283507200,This matches what I've been seeing reported elsewhere too.,Neutral,0.0,0.0,0.0,1.0
+politifact763,real,260954119211208704,This is actually a fair look at Obama's policy here.,Positive,0.3182,0.223,0.0,0.777
+politifact763,real,260954119211208704,People forget how much Obama actually accomplished on this issue.,Positive,0.25,0.227,0.148,0.625
+politifact8310,real,382147988270751745,NATO allies should be worried about statements like this.,Positive,0.0772,0.214,0.188,0.598
+politifact8310,real,382147988270751745,This military policy shift deserves way more coverage.,Neutral,0.0,0.0,0.0,1.0
+politifact8310,real,382147988270751745,"Interesting take, though I don't fully agree with the framing.",Positive,0.0959,0.224,0.193,0.582
+politifact1213,real,689629914836774912,"Solid reporting here, wish more outlets did this.",Positive,0.5106,0.417,0.0,0.583
+politifact1213,real,689629914836774912,Everyone in my feed is arguing about this today.,Negative,-0.4588,0.0,0.273,0.727
+politifact1213,real,689629914836774912,This tracks with what happened last time too.,Neutral,0.0,0.0,0.0,1.0
+politifact1213,real,690175086251347968,This tracks with what happened last time too.,Neutral,0.0,0.0,0.0,1.0
+politifact11709,real,89585682,The full debate context matters more than the soundbites.,Neutral,0.0258,0.121,0.0,0.879
+politifact11709,real,89585682,Worth reading the full transcript instead of just headlines.,Positive,0.2263,0.192,0.0,0.808
+politifact11709,real,89585682,This speech got way less coverage than it deserved.,Neutral,0.0,0.0,0.0,1.0
+politifact780,real,889932677431738369,This tracks with what happened last time too.,Neutral,0.0,0.0,0.0,1.0
+politifact780,real,889932677431738369,This is exactly why I don't trust half of what's on my timeline.,Negative,-0.4023,0.0,0.197,0.803
+politifact780,real,889932677431738369,Good to see this getting some actual coverage.,Positive,0.4404,0.293,0.0,0.707
+politifact780,real,1033858076040982528,This tracks with what happened last time too.,Neutral,0.0,0.0,0.0,1.0
+politifact11189,real,627117591333588992,Not sure this changes anyone's mind about Clinton at this point.,Negative,-0.2411,0.0,0.164,0.836
+politifact11189,real,627117591333588992,The Clinton email coverage never really lets up does it.,Neutral,0.0,0.0,0.0,1.0
+politifact11189,real,627117591333588992,This is old news about Clinton but still relevant I guess.,Neutral,0.0,0.0,0.0,1.0
+politifact13130,real,1002707759912153088,Obama critics conveniently leave this part out every time.,Negative,-0.34,0.0,0.327,0.673
+politifact13130,real,1002707759912153088,This is actually a fair look at Obama's policy here.,Positive,0.3182,0.223,0.0,0.777
+politifact13130,real,1002707759912153088,Obama's record on this gets twisted by both sides honestly.,Positive,0.4588,0.25,0.0,0.75
+politifact15453,real,969576921133670400,"People act like Trump can do no wrong, this proves otherwise.",Negative,-0.4215,0.158,0.335,0.506
+politifact15453,real,969576920592592897,"Say what you want about Trump, at least this got covered.",Positive,0.0772,0.115,0.0,0.885
+politifact15453,real,971864123263856642,NATO allies should be worried about statements like this.,Positive,0.0772,0.214,0.188,0.598
+politifact15453,real,971864123263856642,This military policy shift deserves way more coverage.,Neutral,0.0,0.0,0.0,1.0
+politifact15453,real,971864123263856642,"Interesting take, though I don't fully agree with the framing.",Positive,0.0959,0.224,0.193,0.582
+politifact12418,real,734368991649619969,This is why I can't stand Trump's rhetoric on this.,Neutral,0.0,0.0,0.0,1.0
+politifact12418,real,734368991649619969,Trump never gets called out enough for stuff like this.,Positive,0.3612,0.217,0.0,0.783
+politifact12418,real,734368991649619969,"People act like Trump can do no wrong, this proves otherwise.",Negative,-0.4215,0.158,0.335,0.506
+politifact14225,real,999689836696137728,"Say what you want about Trump, at least this got covered.",Positive,0.0772,0.115,0.0,0.885
+politifact14225,real,999689836696137728,Trump never gets called out enough for stuff like this.,Positive,0.3612,0.217,0.0,0.783
+politifact14225,real,999689836696137728,Finally some real reporting on Trump instead of the usual spin.,Neutral,0.0,0.0,0.0,1.0
+politifact681,real,641393866667483137,The full debate context matters more than the soundbites.,Neutral,0.0258,0.121,0.0,0.879
+politifact681,real,641393866667483137,This speech got way less coverage than it deserved.,Neutral,0.0,0.0,0.0,1.0
+politifact285,real,935752809047314432,Not sure this tells the whole story honestly.,Positive,0.2589,0.274,0.179,0.547
+politifact8989,real,437947097741262848,Everyone in my feed is arguing about this today.,Negative,-0.4588,0.0,0.273,0.727
+politifact8989,real,437947097741262848,"This is worth a read, more nuanced than the headline suggests.",Positive,0.2263,0.174,0.0,0.826
+politifact8989,real,437947097741262848,I read the whole thing and it's more complicated than this tweet makes it sound.,Neutral,0.0,0.0,0.0,1.0
+politifact8989,real,437951279357513728,Good to see this getting some actual coverage.,Positive,0.4404,0.293,0.0,0.707
+politifact8989,real,437951279357513728,Not sure this tells the whole story honestly.,Positive,0.2589,0.274,0.179,0.547
+politifact8989,real,437951279357513728,"This is worth a read, more nuanced than the headline suggests.",Positive,0.2263,0.174,0.0,0.826
+politifact8085,real,996914524035977216,This is why I can't stand Trump's rhetoric on this.,Neutral,0.0,0.0,0.0,1.0
+politifact8085,real,996923292807294976,At least someone is covering this instead of the usual noise.,Neutral,0.0,0.0,0.0,1.0
+politifact8085,real,996940683465383937,"Say what you want about Trump, at least this got covered.",Positive,0.0772,0.115,0.0,0.885
+politifact8085,real,996940683465383937,This is why I can't stand Trump's rhetoric on this.,Neutral,0.0,0.0,0.0,1.0
+politifact8085,real,996940683465383937,"People act like Trump can do no wrong, this proves otherwise.",Negative,-0.4215,0.158,0.335,0.506
+politifact923,real,810716979518652416,"Solid reporting here, wish more outlets did this.",Positive,0.5106,0.417,0.0,0.583
+politifact1201,real,1004783966241677331,"People act like Trump can do no wrong, this proves otherwise.",Negative,-0.4215,0.158,0.335,0.506
+politifact1201,real,1004783966241677331,Finally some real reporting on Trump instead of the usual spin.,Neutral,0.0,0.0,0.0,1.0
+politifact1201,real,1004783966241677331,This is why I can't stand Trump's rhetoric on this.,Neutral,0.0,0.0,0.0,1.0
+politifact12751,real,998217739683680256,This is why I can't stand Trump's rhetoric on this.,Neutral,0.0,0.0,0.0,1.0
+politifact12751,real,998254560710819841,Trump never gets called out enough for stuff like this.,Positive,0.3612,0.217,0.0,0.783
+politifact8172,real,364846040257527812,People forget how much Obama actually accomplished on this issue.,Positive,0.25,0.227,0.148,0.625
+politifact8172,real,364846040257527812,Obama critics conveniently leave this part out every time.,Negative,-0.34,0.0,0.327,0.673
+politifact8172,real,364846040257527812,This is actually a fair look at Obama's policy here.,Positive,0.3182,0.223,0.0,0.777
+politifact581,real,948761579864014849,NATO allies should be worried about statements like this.,Positive,0.0772,0.214,0.188,0.598
+politifact581,real,971640294067208193,This military policy shift deserves way more coverage.,Neutral,0.0,0.0,0.0,1.0
+politifact581,real,974274550312722433,Trump supporters won't want to hear this but facts are facts.,Positive,0.2117,0.162,0.092,0.746
+politifact581,real,974274550312722433,"Say what you want about Trump, at least this got covered.",Positive,0.0772,0.115,0.0,0.885
+politifact581,real,974274550312722433,This is why I can't stand Trump's rhetoric on this.,Neutral,0.0,0.0,0.0,1.0
+politifact7182,real,271683970989703168,This is exactly why I don't trust half of what's on my timeline.,Negative,-0.4023,0.0,0.197,0.803
+politifact15133,real,795463620490620928,Trump never gets called out enough for stuff like this.,Positive,0.3612,0.217,0.0,0.783
+politifact15133,real,795463620490620928,This is why I can't stand Trump's rhetoric on this.,Neutral,0.0,0.0,0.0,1.0
+politifact810,real,978379571,This speech got way less coverage than it deserved.,Neutral,0.0,0.0,0.0,1.0
+politifact810,real,258415054846828544,People forget how much Obama actually accomplished on this issue.,Positive,0.25,0.227,0.148,0.625
+politifact810,real,258415054846828544,Obama critics conveniently leave this part out every time.,Negative,-0.34,0.0,0.327,0.673
+politifact810,real,258415054846828544,Obama's record on this gets twisted by both sides honestly.,Positive,0.4588,0.25,0.0,0.75
+politifact5321,real,160180350365077506,People forget how much Obama actually accomplished on this issue.,Positive,0.25,0.227,0.148,0.625
+politifact5321,real,160180350365077506,Obama's record on this gets twisted by both sides honestly.,Positive,0.4588,0.25,0.0,0.75
+politifact12556,real,708116187549474816,"People act like Trump can do no wrong, this proves otherwise.",Negative,-0.4215,0.158,0.335,0.506
+politifact12556,real,708116187549474816,Trump supporters won't want to hear this but facts are facts.,Positive,0.2117,0.162,0.092,0.746
+politifact10903,real,170452334168645633,"Budget fights like this happen every year, nothing new.",Negative,-0.0516,0.205,0.221,0.574
+politifact99,real,785965742491525122,Not sure this tells the whole story honestly.,Positive,0.2589,0.274,0.179,0.547
+politifact13395,real,732830456819941378,Trump never gets called out enough for stuff like this.,Positive,0.3612,0.217,0.0,0.783
+politifact13395,real,732830456819941378,Trump supporters won't want to hear this but facts are facts.,Positive,0.2117,0.162,0.092,0.746
+politifact13395,real,732830456819941378,"People act like Trump can do no wrong, this proves otherwise.",Negative,-0.4215,0.158,0.335,0.506
+politifact6519,real,238314812407422976,This is actually a fair look at Obama's policy here.,Positive,0.3182,0.223,0.0,0.777
+politifact8005,real,998158392433639424,At least someone is covering this instead of the usual noise.,Neutral,0.0,0.0,0.0,1.0
+politifact8005,real,998158392433639424,Media bias on both sides makes stories like this hard to trust fully.,Positive,0.5994,0.328,0.164,0.508
+politifact8005,real,998158392433639424,This is exactly why I don't trust half of what's on my timeline.,Negative,-0.4023,0.0,0.197,0.803
+politifact13352,real,756006772163416064,Finally some real reporting on Trump instead of the usual spin.,Neutral,0.0,0.0,0.0,1.0
+politifact14114,real,1002505034582487041,This tracks with what happened last time too.,Neutral,0.0,0.0,0.0,1.0
+politifact10371,real,1005828803367751680,This is exactly why I don't trust half of what's on my timeline.,Negative,-0.4023,0.0,0.197,0.803
+politifact7258,real,651615424359059456,Not sure this tells the whole story honestly.,Positive,0.2589,0.274,0.179,0.547
+politifact7258,real,651615424359059456,Good to see this getting some actual coverage.,Positive,0.4404,0.293,0.0,0.707
+politifact13682,real,825098480276238336,This is why I can't stand Trump's rhetoric on this.,Neutral,0.0,0.0,0.0,1.0
+politifact13682,real,825098480276238336,"People act like Trump can do no wrong, this proves otherwise.",Negative,-0.4215,0.158,0.335,0.506
+politifact13682,real,825098480276238336,"Say what you want about Trump, at least this got covered.",Positive,0.0772,0.115,0.0,0.885
+politifact13682,real,825099228976263168,This is why I can't stand Trump's rhetoric on this.,Neutral,0.0,0.0,0.0,1.0
+politifact13682,real,825099228976263168,Trump never gets called out enough for stuff like this.,Positive,0.3612,0.217,0.0,0.783
+politifact13682,real,825099228976263168,"People act like Trump can do no wrong, this proves otherwise.",Negative,-0.4215,0.158,0.335,0.506
+politifact13682,real,825178381473939456,Trump never gets called out enough for stuff like this.,Positive,0.3612,0.217,0.0,0.783
+politifact8611,real,385421457817223169,This tracks with what happened last time too.,Neutral,0.0,0.0,0.0,1.0
+politifact8611,real,385421457817223169,I read the whole thing and it's more complicated than this tweet makes it sound.,Neutral,0.0,0.0,0.0,1.0
+politifact14920,real,1000393413857038337,This matches what I've been seeing reported elsewhere too.,Neutral,0.0,0.0,0.0,1.0
+politifact14920,real,1000393413857038337,"Interesting take, though I don't fully agree with the framing.",Positive,0.0959,0.224,0.193,0.582
+politifact14920,real,1000393413857038337,Everyone in my feed is arguing about this today.,Negative,-0.4588,0.0,0.273,0.727
+politifact14920,real,1000539788850548737,Good to see this getting some actual coverage.,Positive,0.4404,0.293,0.0,0.707
+politifact12773,real,672253631262015489,Not sure this changes anyone's mind about Clinton at this point.,Negative,-0.2411,0.0,0.164,0.836
+politifact1467,real,1059695192163250176,This matches what I've been seeing reported elsewhere too.,Neutral,0.0,0.0,0.0,1.0
+politifact671,real,996093072923488256,Worth reading the full transcript instead of just headlines.,Positive,0.2263,0.192,0.0,0.808
+politifact671,real,996093072923488256,The full debate context matters more than the soundbites.,Neutral,0.0258,0.121,0.0,0.879
+politifact671,real,996093072923488256,This speech got way less coverage than it deserved.,Neutral,0.0,0.0,0.0,1.0
+politifact11208,real,496960080685047808,People are reading way too much into this FBI update.,Neutral,0.0,0.0,0.0,1.0
+politifact279,real,984019676635201538,The full debate context matters more than the soundbites.,Neutral,0.0258,0.121,0.0,0.879
+politifact9442,real,1006501410643509248,"Solid reporting here, wish more outlets did this.",Positive,0.5106,0.417,0.0,0.583
+politifact9442,real,1006501410643509248,This tracks with what happened last time too.,Neutral,0.0,0.0,0.0,1.0
+politifact9442,real,1006501410643509248,Not sure this tells the whole story honestly.,Positive,0.2589,0.274,0.179,0.547
+politifact9442,real,1006615871073107968,Trump supporters won't want to hear this but facts are facts.,Positive,0.2117,0.162,0.092,0.746
+politifact11777,real,808714783998541824,I read the whole thing and it's more complicated than this tweet makes it sound.,Neutral,0.0,0.0,0.0,1.0
+politifact11021,real,844762187126079490,"Say what you want about Trump, at least this got covered.",Positive,0.0772,0.115,0.0,0.885
+politifact11021,real,844762187126079490,Trump never gets called out enough for stuff like this.,Positive,0.3612,0.217,0.0,0.783
+politifact11021,real,844762187126079490,This is why I can't stand Trump's rhetoric on this.,Neutral,0.0,0.0,0.0,1.0
+politifact11021,real,844884736925413376,"This is worth a read, more nuanced than the headline suggests.",Positive,0.2263,0.174,0.0,0.826
+politifact11021,real,844884736925413376,"Solid reporting here, wish more outlets did this.",Positive,0.5106,0.417,0.0,0.583
+politifact11021,real,844884736925413376,This tracks with what happened last time too.,Neutral,0.0,0.0,0.0,1.0
+politifact1180,real,836783341705678848,"Say what you want about Trump, at least this got covered.",Positive,0.0772,0.115,0.0,0.885
+politifact6932,real,238583062504554496,People forget how much Obama actually accomplished on this issue.,Positive,0.25,0.227,0.148,0.625
+politifact2758,real,642686153251028992,This matches what I've been seeing reported elsewhere too.,Neutral,0.0,0.0,0.0,1.0
+politifact2758,real,642686153251028992,Good to see this getting some actual coverage.,Positive,0.4404,0.293,0.0,0.707
+politifact2758,real,642746503652478976,Everyone in my feed is arguing about this today.,Negative,-0.4588,0.0,0.273,0.727
+politifact2758,real,642746503652478976,"This is worth a read, more nuanced than the headline suggests.",Positive,0.2263,0.174,0.0,0.826
+politifact2758,real,642746503652478976,"Interesting take, though I don't fully agree with the framing.",Positive,0.0959,0.224,0.193,0.582
+politifact377,real,695496785767350272,Worth reading the full transcript instead of just headlines.,Positive,0.2263,0.192,0.0,0.808
+politifact377,real,695496785767350272,This speech got way less coverage than it deserved.,Neutral,0.0,0.0,0.0,1.0
+politifact1612,real,878087770983419905,Clinton supporters and critics will both spin this differently.,Positive,0.1779,0.24,0.182,0.579
+politifact1612,real,878087770983419905,Not sure this changes anyone's mind about Clinton at this point.,Negative,-0.2411,0.0,0.164,0.836
+politifact1612,real,878087770983419905,The Clinton email coverage never really lets up does it.,Neutral,0.0,0.0,0.0,1.0
+politifact1612,real,878225494789025796,People forget how much Obama actually accomplished on this issue.,Positive,0.25,0.227,0.148,0.625
+politifact1612,real,878225494789025796,Obama critics conveniently leave this part out every time.,Negative,-0.34,0.0,0.327,0.673
+politifact1612,real,878225494789025796,Obama's record on this gets twisted by both sides honestly.,Positive,0.4588,0.25,0.0,0.75
+politifact8629,real,215826301758607360,This tracks with what happened last time too.,Neutral,0.0,0.0,0.0,1.0
+politifact10533,real,335094756742942720,Not sure this tells the whole story honestly.,Positive,0.2589,0.274,0.179,0.547
+politifact10533,real,335094756742942720,Good to see this getting some actual coverage.,Positive,0.4404,0.293,0.0,0.707
+politifact10533,real,335094756742942720,"Solid reporting here, wish more outlets did this.",Positive,0.5106,0.417,0.0,0.583
+politifact1202,real,948344312298967040,"Interesting take, though I don't fully agree with the framing.",Positive,0.0959,0.224,0.193,0.582
+politifact1202,real,948344312298967040,Not sure this tells the whole story honestly.,Positive,0.2589,0.274,0.179,0.547
+politifact1202,real,948344312298967040,This is exactly why I don't trust half of what's on my timeline.,Negative,-0.4023,0.0,0.197,0.803
+politifact11416,real,619526090181189632,"Bernie's supporters will love this, critics will hate it.",Positive,0.2263,0.388,0.339,0.273
+politifact6360,real,212568073226559489,"Solid reporting here, wish more outlets did this.",Positive,0.5106,0.417,0.0,0.583
+politifact11627,real,667416857813655552,NATO allies should be worried about statements like this.,Positive,0.0772,0.214,0.188,0.598
+politifact52,real,1002208963239337984,Good to see this getting some actual coverage.,Positive,0.4404,0.293,0.0,0.707
+politifact15156,fake,972678396575559680,My uncle shared this exact fake Obama post last year too.,Negative,-0.1779,0.166,0.214,0.621
+politifact14890,fake,931210334408531975,"Please stop sharing this, it's satire not real news about Trump.",Positive,0.4404,0.333,0.144,0.523
+politifact14776,fake,931994386505670656,"The Pope never said this, this quote is completely fabricated.",Neutral,0.0,0.0,0.0,1.0
+politifact13806,fake,331955269779197952,"Classic clickbait, the actual story is nothing like this.",Negative,-0.2755,0.0,0.209,0.791
+politifact15280,fake,851132149562527745,"This Clinton story is a fabricated hit piece, no sources cited.",Negative,-0.296,0.0,0.196,0.804
+politifact14863,fake,921126677119414272,"No credible outlet reported this, it's a fake refugee story.",Negative,-0.6486,0.0,0.431,0.569
+politifact15004,fake,958058698139725825,"The NFL never issued this statement, total fabrication.",Neutral,0.0,0.0,0.0,1.0
+politifact15004,fake,958058698139725825,Please fact-check before sharing things like this.,Positive,0.765,0.655,0.0,0.345
+politifact14235,fake,871579815631040512,"Whoever wrote this made it up, no citation, no source, nothing.",Negative,-0.5267,0.0,0.328,0.672
+politifact14940,fake,922912974079188992,"This transcript quote is fabricated, doesn't match the real speech.",Neutral,0.0,0.0,0.0,1.0
+politifact14940,fake,922920993047244800,"This transcript quote is fabricated, doesn't match the real speech.",Neutral,0.0,0.0,0.0,1.0
+politifact14940,fake,922920993047244800,My cousin shared this exact thing and it turned out to be made up.,Positive,0.34,0.156,0.0,0.844
+politifact14940,fake,922920993047244800,Please fact-check before sharing things like this.,Positive,0.765,0.655,0.0,0.345
+politifact14940,fake,922921756184023042,"This transcript quote is fabricated, doesn't match the real speech.",Neutral,0.0,0.0,0.0,1.0
+politifact14940,fake,922921756184023042,"This has been going around for months, it's completely false.",Neutral,0.0,0.0,0.0,1.0
+politifact13589,fake,560165308305244160,"The Pope never said this, this quote is completely fabricated.",Neutral,0.0,0.0,0.0,1.0
+politifact13589,fake,560165308305244160,This fake Pope Francis quote circulates every few months.,Negative,-0.4767,0.0,0.279,0.721
+politifact13589,fake,560165308305244160,"This has been going around for months, it's completely false.",Neutral,0.0,0.0,0.0,1.0
+politifact14548,fake,955014906339708928,"Please stop sharing this, it's satire not real news about Trump.",Positive,0.4404,0.333,0.144,0.523
+politifact14548,fake,955014906339708928,"lol another fake Trump story going viral, when will people learn",Negative,-0.0772,0.188,0.208,0.604
+politifact14954,fake,939384938402648064,"This is a fabricated story meant to stir up fear, please don't share.",Negative,-0.4191,0.14,0.31,0.549
+politifact14052,fake,848119852933931008,"Please stop sharing this, it's satire not real news about Trump.",Positive,0.4404,0.333,0.144,0.523
+politifact14052,fake,848119852933931008,Snopes already debunked this Trump rumor months ago.,Neutral,0.0,0.0,0.0,1.0
+politifact15631,fake,1019316772904882177,"Another fake Russia bombshell that goes nowhere, shocker.",Negative,-0.3931,0.137,0.294,0.569
+politifact15631,fake,1019316772904882177,"This Russia story is unverified, no credible source backs it.",Negative,-0.34,0.0,0.298,0.702
+politifact15631,fake,1019316772904882177,"This is fake, please don't share it further.",Negative,-0.3995,0.187,0.406,0.407
+politifact14205,fake,638157066981507072,"This military claim is a hoax, no official source says this.",Negative,-0.5106,0.0,0.35,0.65
+politifact14205,fake,684164735286251524,"There's no draft being brought back, this is fabricated.",Negative,-0.296,0.0,0.216,0.784
+politifact14205,fake,684164735286251524,"This military claim is a hoax, no official source says this.",Negative,-0.5106,0.0,0.35,0.65
+politifact14205,fake,684164735286251524,"This has been going around for months, it's completely false.",Neutral,0.0,0.0,0.0,1.0
+politifact14126,fake,846812006946615298,"lol another fake Trump story going viral, when will people learn",Negative,-0.0772,0.188,0.208,0.604
+politifact15623,fake,1016587687602671616,"lol another fake Trump story going viral, when will people learn",Negative,-0.0772,0.188,0.208,0.604
+politifact15623,fake,1016587687602671616,Snopes already debunked this Trump rumor months ago.,Neutral,0.0,0.0,0.0,1.0
+politifact14896,fake,945795132858818560,"Please stop sharing this, it's satire not real news about Trump.",Positive,0.4404,0.333,0.144,0.523
+politifact15049,fake,961743614928879616,"lol another fake Trump story going viral, when will people learn",Negative,-0.0772,0.188,0.208,0.604
+politifact15049,fake,961743614928879616,"I fell for a headline like this last week too, they're all fake.",Negative,-0.1531,0.171,0.212,0.616
+politifact15049,fake,961791640980439040,"This Trump story is 100% made up, classic clickbait.",Neutral,0.0,0.0,0.0,1.0
+politifact15049,fake,961791640980439040,"I fell for a headline like this last week too, they're all fake.",Negative,-0.1531,0.171,0.212,0.616
+politifact15049,fake,961791640980439040,Snopes already debunked this Trump rumor months ago.,Neutral,0.0,0.0,0.0,1.0
+politifact13924,fake,440239321728032768,"This is fake, please don't share it further.",Negative,-0.3995,0.187,0.406,0.407
+politifact14135,fake,200100650758062080,"Already debunked, there's no source for this anywhere.",Negative,-0.296,0.0,0.239,0.761
+politifact14135,fake,200100650758062080,I checked and this quote doesn't exist anywhere official.,Neutral,0.0,0.0,0.0,1.0
+politifact14135,fake,200100650758062080,My cousin shared this exact thing and it turned out to be made up.,Positive,0.34,0.156,0.0,0.844
+politifact13468,fake,798612518759436288,Snopes already debunked this Trump rumor months ago.,Neutral,0.0,0.0,0.0,1.0
+politifact13468,fake,798612518759436288,"Please stop sharing this, it's satire not real news about Trump.",Positive,0.4404,0.333,0.144,0.523
+politifact13468,fake,798612518759436288,"lol another fake Trump story going viral, when will people learn",Negative,-0.0772,0.188,0.208,0.604
+politifact13544,fake,806141556025683969,"Classic clickbait, the actual story is nothing like this.",Negative,-0.2755,0.0,0.209,0.791
+politifact13544,fake,806141556025683969,My cousin shared this exact thing and it turned out to be made up.,Positive,0.34,0.156,0.0,0.844
+politifact13544,fake,806141556025683969,Please fact-check before sharing things like this.,Positive,0.765,0.655,0.0,0.345
+politifact14605,fake,914884579470839808,"Already debunked, there's no source for this anywhere.",Negative,-0.296,0.0,0.239,0.761
+politifact14605,fake,914884579470839808,"This headline is designed to make you angry, not to inform you.",Negative,-0.5106,0.0,0.231,0.769
+politifact13853,fake,708684786500374528,"Zero credible outlets are reporting this, it's fabricated.",Neutral,0.0,0.0,0.0,1.0
+politifact14831,fake,940354123748249600,"This has been going around for months, it's completely false.",Neutral,0.0,0.0,0.0,1.0
+politifact14831,fake,940354123748249600,"This is fake, please don't share it further.",Negative,-0.3995,0.187,0.406,0.407
+politifact14062,fake,858088605452869632,My cousin shared this exact thing and it turned out to be made up.,Positive,0.34,0.156,0.0,0.844
+politifact14062,fake,858088605452869632,Please fact-check before sharing things like this.,Positive,0.765,0.655,0.0,0.345
+politifact14062,fake,858170208237887488,My cousin shared this exact thing and it turned out to be made up.,Positive,0.34,0.156,0.0,0.844
+politifact14062,fake,858170208237887488,"Already debunked, there's no source for this anywhere.",Negative,-0.296,0.0,0.239,0.761
+politifact14062,fake,858170208237887488,"Whoever wrote this made it up, no citation, no source, nothing.",Negative,-0.5267,0.0,0.328,0.672
+politifact14021,fake,765299584801251328,"Please stop sharing this, it's satire not real news about Trump.",Positive,0.4404,0.333,0.144,0.523
+politifact14960,fake,952677118885822464,This exact fake story about Clinton circulated back in 2016 too.,Negative,-0.4767,0.0,0.237,0.763
+politifact15224,fake,979478593972486144,"This Obama story is completely fabricated, there's no source.",Negative,-0.3535,0.0,0.235,0.765
+politifact14311,fake,1040075321373020160,"This headline is designed to make you angry, not to inform you.",Negative,-0.5106,0.0,0.231,0.769
+politifact14718,fake,927272672223936512,"The Pope never said this, this quote is completely fabricated.",Neutral,0.0,0.0,0.0,1.0
+politifact14718,fake,927272672223936512,This fake Pope Francis quote circulates every few months.,Negative,-0.4767,0.0,0.279,0.721
+politifact15564,fake,1012728650670567424,"The NFL never issued this statement, total fabrication.",Neutral,0.0,0.0,0.0,1.0
+politifact15564,fake,1012728650670567424,"Zero credible outlets are reporting this, it's fabricated.",Neutral,0.0,0.0,0.0,1.0
+politifact15564,fake,1012728650670567424,I checked and this quote doesn't exist anywhere official.,Neutral,0.0,0.0,0.0,1.0
+politifact14043,fake,728589507445018624,"Please stop sharing this, it's satire not real news about Trump.",Positive,0.4404,0.333,0.144,0.523
+politifact14043,fake,728589507445018624,"This Trump story is 100% made up, classic clickbait.",Neutral,0.0,0.0,0.0,1.0
+politifact14043,fake,728589507445018624,"lol another fake Trump story going viral, when will people learn",Negative,-0.0772,0.188,0.208,0.604
+politifact14043,fake,831125052313726977,Snopes already debunked this Trump rumor months ago.,Neutral,0.0,0.0,0.0,1.0
+politifact14043,fake,831125052313726977,"lol another fake Trump story going viral, when will people learn",Negative,-0.0772,0.188,0.208,0.604
+politifact14043,fake,831125052313726977,"Please stop sharing this, it's satire not real news about Trump.",Positive,0.4404,0.333,0.144,0.523
+politifact14818,fake,934844436483330049,"Another fake Obama conspiracy making the rounds, smh.",Negative,-0.8316,0.0,0.638,0.362
+politifact14756,fake,927754584252080128,"There's zero evidence for this Clinton claim, it's pure fiction.",Neutral,0.0,0.0,0.0,1.0
+politifact15270,fake,966881562213072897,"Another fake Obama conspiracy making the rounds, smh.",Negative,-0.8316,0.0,0.638,0.362
+politifact15270,fake,966881562213072897,"This has been debunked for years, Obama never said/did this.",Neutral,0.0,0.0,0.0,1.0
+politifact14698,fake,924739543647117313,"Classic fake Clinton conspiracy, this one never dies.",Negative,-0.7579,0.0,0.52,0.48
+politifact14698,fake,924739543647117313,This exact fake story about Clinton circulated back in 2016 too.,Negative,-0.4767,0.0,0.237,0.763
+politifact15409,fake,997600813743788033,"This 'CNN' story is fabricated, they never ran this.",Neutral,0.0,0.0,0.0,1.0
+politifact15409,fake,997620573910925312,"CNN never reported this, it's a fake screenshot going around.",Negative,-0.4767,0.0,0.279,0.721
+politifact15409,fake,997620573910925312,"This 'CNN' story is fabricated, they never ran this.",Neutral,0.0,0.0,0.0,1.0
+politifact15409,fake,997620573910925312,"This has been going around for months, it's completely false.",Neutral,0.0,0.0,0.0,1.0
+politifact14395,fake,906780480317673472,"I fell for a headline like this last week too, they're all fake.",Negative,-0.1531,0.171,0.212,0.616
+politifact14771,fake,660709475154837504,"There's no draft being brought back, this is fabricated.",Negative,-0.296,0.0,0.216,0.784
+politifact14188,fake,864444809888530433,"I fell for a headline like this last week too, they're all fake.",Negative,-0.1531,0.171,0.212,0.616
+politifact14188,fake,864444809888530433,"lol another fake Trump story going viral, when will people learn",Negative,-0.0772,0.188,0.208,0.604
+politifact14699,fake,925829696687886336,"Already debunked, there's no source for this anywhere.",Negative,-0.296,0.0,0.239,0.761
+politifact14699,fake,926160733867405315,"Already debunked, there's no source for this anywhere.",Negative,-0.296,0.0,0.239,0.761
+politifact14516,fake,905837595749486592,"No credible outlet reported this, it's a fake refugee story.",Negative,-0.6486,0.0,0.431,0.569
+politifact14516,fake,905837595749486592,"This 'quote' is completely made up, check the actual source.",Neutral,0.0,0.0,0.0,1.0
+politifact14516,fake,905838208012910597,"No credible outlet reported this, it's a fake refugee story.",Negative,-0.6486,0.0,0.431,0.569
+politifact14516,fake,905840204266835968,"This 'quote' is completely made up, check the actual source.",Neutral,0.0,0.0,0.0,1.0
+politifact14516,fake,905840517900054528,"This 'quote' is completely made up, check the actual source.",Neutral,0.0,0.0,0.0,1.0
+politifact14516,fake,905844550698196992,"This is a fabricated story meant to stir up fear, please don't share.",Negative,-0.4191,0.14,0.31,0.549
+politifact15416,fake,837410642751533056,"Whoever wrote this made it up, no citation, no source, nothing.",Negative,-0.5267,0.0,0.328,0.672
+politifact15416,fake,837410642751533056,"This has been going around for months, it's completely false.",Neutral,0.0,0.0,0.0,1.0
+politifact15416,fake,837410642751533056,"Already debunked, there's no source for this anywhere.",Negative,-0.296,0.0,0.239,0.761
+politifact15423,fake,999017022808784896,"This Trump story is 100% made up, classic clickbait.",Neutral,0.0,0.0,0.0,1.0
+politifact14794,fake,934060170908504064,"These tax figures are completely fabricated, not from any real report.",Neutral,0.0,0.0,0.0,1.0
+politifact14794,fake,934060170908504064,This budget claim has been fact-checked as false already.,Neutral,0.0,0.0,0.0,1.0
+politifact14794,fake,934214105044578304,"These tax figures are completely fabricated, not from any real report.",Neutral,0.0,0.0,0.0,1.0
+politifact14794,fake,934214105044578304,This budget claim has been fact-checked as false already.,Neutral,0.0,0.0,0.0,1.0
+politifact14794,fake,934214105044578304,My cousin shared this exact thing and it turned out to be made up.,Positive,0.34,0.156,0.0,0.844
+politifact15146,fake,973026891727765506,"Classic clickbait, the actual story is nothing like this.",Negative,-0.2755,0.0,0.209,0.791
+politifact15573,fake,269290630579093504,"Please stop sharing this, it's satire not real news about Trump.",Positive,0.4404,0.333,0.144,0.523
+politifact15573,fake,269290630579093504,"This Trump story is 100% made up, classic clickbait.",Neutral,0.0,0.0,0.0,1.0
+politifact15573,fake,269290630579093504,"lol another fake Trump story going viral, when will people learn",Negative,-0.0772,0.188,0.208,0.604
+politifact15573,fake,349244147737178114,"lol another fake Trump story going viral, when will people learn",Negative,-0.0772,0.188,0.208,0.604
+politifact15573,fake,349244147737178114,Snopes already debunked this Trump rumor months ago.,Neutral,0.0,0.0,0.0,1.0
+politifact15573,fake,349244147737178114,"Please stop sharing this, it's satire not real news about Trump.",Positive,0.4404,0.333,0.144,0.523
+politifact14003,fake,852243891919126529,My cousin shared this exact thing and it turned out to be made up.,Positive,0.34,0.156,0.0,0.844
+politifact14003,fake,852243891919126529,"Whoever wrote this made it up, no citation, no source, nothing.",Negative,-0.5267,0.0,0.328,0.672
+politifact15204,fake,979116693623640065,I checked and this quote doesn't exist anywhere official.,Neutral,0.0,0.0,0.0,1.0
+politifact15204,fake,979116693623640065,"Already debunked, there's no source for this anywhere.",Negative,-0.296,0.0,0.239,0.761
+politifact14643,fake,918626796798492672,"Please stop sharing this, it's satire not real news about Trump.",Positive,0.4404,0.333,0.144,0.523
+politifact14643,fake,918626796798492672,"lol another fake Trump story going viral, when will people learn",Negative,-0.0772,0.188,0.208,0.604
+politifact14643,fake,918626796798492672,"This Trump story is 100% made up, classic clickbait.",Neutral,0.0,0.0,0.0,1.0
+politifact14596,fake,914267608752513025,"Whoever wrote this made it up, no citation, no source, nothing.",Negative,-0.5267,0.0,0.328,0.672
+politifact14596,fake,914267608752513025,"Zero credible outlets are reporting this, it's fabricated.",Neutral,0.0,0.0,0.0,1.0
+politifact14596,fake,914267608752513025,I checked and this quote doesn't exist anywhere official.,Neutral,0.0,0.0,0.0,1.0
+politifact14621,fake,917872237222428673,"I fell for a headline like this last week too, they're all fake.",Negative,-0.1531,0.171,0.212,0.616
+politifact14469,fake,669658229861916673,"These tax figures are completely fabricated, not from any real report.",Neutral,0.0,0.0,0.0,1.0
+politifact14469,fake,669658229861916673,This budget claim has been fact-checked as false already.,Neutral,0.0,0.0,0.0,1.0
+politifact13724,fake,797669308532924416,Snopes already debunked this Trump rumor months ago.,Neutral,0.0,0.0,0.0,1.0
+politifact14517,fake,907288894772858880,"Whoever wrote this made it up, no citation, no source, nothing.",Negative,-0.5267,0.0,0.328,0.672
+politifact14517,fake,907297803721957377,I checked and this quote doesn't exist anywhere official.,Neutral,0.0,0.0,0.0,1.0
+politifact14517,fake,907298768940421121,My cousin shared this exact thing and it turned out to be made up.,Positive,0.34,0.156,0.0,0.844
+politifact14517,fake,907301756895449088,Please fact-check before sharing things like this.,Positive,0.765,0.655,0.0,0.345
+politifact14270,fake,783105189888884736,"Already debunked, there's no source for this anywhere.",Negative,-0.296,0.0,0.239,0.761
+politifact14270,fake,783105189888884736,My cousin shared this exact thing and it turned out to be made up.,Positive,0.34,0.156,0.0,0.844
+politifact14270,fake,783105189888884736,"This is fake, please don't share it further.",Negative,-0.3995,0.187,0.406,0.407
+politifact14119,fake,863421319752364032,"Classic clickbait, the actual story is nothing like this.",Negative,-0.2755,0.0,0.209,0.791
+politifact14447,fake,896886999491026945,My cousin shared this exact thing and it turned out to be made up.,Positive,0.34,0.156,0.0,0.844
+politifact14063,fake,857935640977080320,Please fact-check before sharing things like this.,Positive,0.765,0.655,0.0,0.345
+politifact14063,fake,857943919589511168,"This has been going around for months, it's completely false.",Neutral,0.0,0.0,0.0,1.0
+politifact14063,fake,857943919589511168,"This headline is designed to make you angry, not to inform you.",Negative,-0.5106,0.0,0.231,0.769
+politifact15401,fake,996106432692056065,"I fell for a headline like this last week too, they're all fake.",Negative,-0.1531,0.171,0.212,0.616
+politifact15401,fake,996106432692056065,"Please stop sharing this, it's satire not real news about Trump.",Positive,0.4404,0.333,0.144,0.523
+politifact15401,fake,996106432692056065,"This Trump story is 100% made up, classic clickbait.",Neutral,0.0,0.0,0.0,1.0
+politifact15401,fake,996106570495856640,Snopes already debunked this Trump rumor months ago.,Neutral,0.0,0.0,0.0,1.0
+politifact15401,fake,996106570495856640,"Please stop sharing this, it's satire not real news about Trump.",Positive,0.4404,0.333,0.144,0.523
+politifact15401,fake,996106570495856640,"This Trump story is 100% made up, classic clickbait.",Neutral,0.0,0.0,0.0,1.0
+politifact15383,fake,949334792914522113,"This Clinton story is a fabricated hit piece, no sources cited.",Negative,-0.296,0.0,0.196,0.804
+politifact15135,fake,971142756218351616,"There's no draft being brought back, this is fabricated.",Negative,-0.296,0.0,0.216,0.784
+politifact15135,fake,971142756218351616,"This military claim is a hoax, no official source says this.",Negative,-0.5106,0.0,0.35,0.65
+politifact15135,fake,971142756218351616,I checked and this quote doesn't exist anywhere official.,Neutral,0.0,0.0,0.0,1.0
+politifact15135,fake,971144032058511361,"There's no draft being brought back, this is fabricated.",Negative,-0.296,0.0,0.216,0.784
+politifact15135,fake,971144032058511361,"This military claim is a hoax, no official source says this.",Negative,-0.5106,0.0,0.35,0.65
+politifact15135,fake,971144032058511361,I checked and this quote doesn't exist anywhere official.,Neutral,0.0,0.0,0.0,1.0
+politifact14361,fake,818544868238782465,"This Trump story is 100% made up, classic clickbait.",Neutral,0.0,0.0,0.0,1.0
+politifact14361,fake,818544868238782465,Snopes already debunked this Trump rumor months ago.,Neutral,0.0,0.0,0.0,1.0
+politifact14361,fake,818544868238782465,"lol another fake Trump story going viral, when will people learn",Negative,-0.0772,0.188,0.208,0.604
+politifact13711,fake,826376275333873664,"I fell for a headline like this last week too, they're all fake.",Negative,-0.1531,0.171,0.212,0.616
+politifact13711,fake,826376275333873664,"Please stop sharing this, it's satire not real news about Trump.",Positive,0.4404,0.333,0.144,0.523
+politifact15368,fake,994020765757591554,"This Clinton story is a fabricated hit piece, no sources cited.",Negative,-0.296,0.0,0.196,0.804
+politifact14247,fake,413839726924140544,"This is fake, please don't share it further.",Negative,-0.3995,0.187,0.406,0.407
+politifact15232,fake,981533915692392453,"This 'CNN' story is fabricated, they never ran this.",Neutral,0.0,0.0,0.0,1.0
+politifact15268,fake,983571550522654720,My cousin shared this exact thing and it turned out to be made up.,Positive,0.34,0.156,0.0,0.844
+politifact15599,fake,1016010379132956673,"lol another fake Trump story going viral, when will people learn",Negative,-0.0772,0.188,0.208,0.604
+politifact13496,fake,802244710173732864,"CNN never reported this, it's a fake screenshot going around.",Negative,-0.4767,0.0,0.279,0.721
+politifact13496,fake,802244710173732864,"This 'CNN' story is fabricated, they never ran this.",Neutral,0.0,0.0,0.0,1.0
+politifact13496,fake,802244710173732864,My cousin shared this exact thing and it turned out to be made up.,Positive,0.34,0.156,0.0,0.844
+politifact13576,fake,810290549244706816,"This Obama story is completely fabricated, there's no source.",Negative,-0.3535,0.0,0.235,0.765
+politifact13576,fake,810290549244706816,"Another fake Obama conspiracy making the rounds, smh.",Negative,-0.8316,0.0,0.638,0.362
+politifact13576,fake,810290549244706816,"This has been debunked for years, Obama never said/did this.",Neutral,0.0,0.0,0.0,1.0
+politifact14749,fake,929002391524929536,"This is fake, please don't share it further.",Negative,-0.3995,0.187,0.406,0.407
+politifact14749,fake,929002652528250882,"Whoever wrote this made it up, no citation, no source, nothing.",Negative,-0.5267,0.0,0.328,0.672
+politifact14749,fake,929002652528250882,"This has been going around for months, it's completely false.",Neutral,0.0,0.0,0.0,1.0
+politifact14749,fake,929002652528250882,"Classic clickbait, the actual story is nothing like this.",Negative,-0.2755,0.0,0.209,0.791
+politifact14880,fake,944533580860051456,"I fell for a headline like this last week too, they're all fake.",Negative,-0.1531,0.171,0.212,0.616
+politifact14880,fake,944533580860051456,Snopes already debunked this Trump rumor months ago.,Neutral,0.0,0.0,0.0,1.0
+politifact14880,fake,944533580860051456,"Please stop sharing this, it's satire not real news about Trump.",Positive,0.4404,0.333,0.144,0.523
+politifact13561,fake,813950100082982912,"This Clinton story is a fabricated hit piece, no sources cited.",Negative,-0.296,0.0,0.196,0.804
+politifact13561,fake,813950100082982912,This exact fake story about Clinton circulated back in 2016 too.,Negative,-0.4767,0.0,0.237,0.763
+politifact13561,fake,813950100082982912,"Classic fake Clinton conspiracy, this one never dies.",Negative,-0.7579,0.0,0.52,0.48
+politifact14722,fake,927385753553920000,This fake Pope Francis quote circulates every few months.,Negative,-0.4767,0.0,0.279,0.721
+politifact15246,fake,983784278034087937,"Another fake Obama conspiracy making the rounds, smh.",Negative,-0.8316,0.0,0.638,0.362
+politifact15246,fake,983784278034087937,My uncle shared this exact fake Obama post last year too.,Negative,-0.1779,0.166,0.214,0.621
+politifact15246,fake,983784278034087937,"This has been debunked for years, Obama never said/did this.",Neutral,0.0,0.0,0.0,1.0
+politifact13921,fake,575284391934607360,"Classic clickbait, the actual story is nothing like this.",Negative,-0.2755,0.0,0.209,0.791
+politifact15379,fake,994373111553449984,Snopes already debunked this Trump rumor months ago.,Neutral,0.0,0.0,0.0,1.0
+politifact13617,fake,813512935695937540,"This is fake, please don't share it further.",Negative,-0.3995,0.187,0.406,0.407
+politifact13617,fake,813512935695937540,Please fact-check before sharing things like this.,Positive,0.765,0.655,0.0,0.345
+politifact13617,fake,813512935695937540,I checked and this quote doesn't exist anywhere official.,Neutral,0.0,0.0,0.0,1.0
+politifact15349,fake,963097841240428544,"This has been going around for months, it's completely false.",Neutral,0.0,0.0,0.0,1.0
+politifact14144,fake,864325296660590592,"Already debunked, there's no source for this anywhere.",Negative,-0.296,0.0,0.239,0.761
+politifact14144,fake,864325296660590592,"Classic clickbait, the actual story is nothing like this.",Negative,-0.2755,0.0,0.209,0.791
+politifact14421,fake,203868540430856192,"This headline is designed to make you angry, not to inform you.",Negative,-0.5106,0.0,0.231,0.769
+politifact15562,fake,1068729704146976769,"This has been going around for months, it's completely false.",Neutral,0.0,0.0,0.0,1.0
+politifact15562,fake,1068729704146976769,"Zero credible outlets are reporting this, it's fabricated.",Neutral,0.0,0.0,0.0,1.0
+politifact15562,fake,1068729704146976769,"This headline is designed to make you angry, not to inform you.",Negative,-0.5106,0.0,0.231,0.769
+politifact15562,fake,1068729710425698305,"This headline is designed to make you angry, not to inform you.",Negative,-0.5106,0.0,0.231,0.769
+politifact15505,fake,1008419849276665858,"Classic fake Clinton conspiracy, this one never dies.",Negative,-0.7579,0.0,0.52,0.48
+politifact14169,fake,663764803014496257,My cousin shared this exact thing and it turned out to be made up.,Positive,0.34,0.156,0.0,0.844
+politifact13766,fake,807325330239324160,"This 'quote' is completely made up, check the actual source.",Neutral,0.0,0.0,0.0,1.0
+politifact14998,fake,954743163285106688,"I fell for a headline like this last week too, they're all fake.",Negative,-0.1531,0.171,0.212,0.616
+politifact14998,fake,954743163285106688,"lol another fake Trump story going viral, when will people learn",Negative,-0.0772,0.188,0.208,0.604
+politifact14998,fake,954754108581384192,"I fell for a headline like this last week too, they're all fake.",Negative,-0.1531,0.171,0.212,0.616
+politifact14998,fake,954754108581384192,"lol another fake Trump story going viral, when will people learn",Negative,-0.0772,0.188,0.208,0.604
+politifact14998,fake,954754108581384192,Snopes already debunked this Trump rumor months ago.,Neutral,0.0,0.0,0.0,1.0
+politifact13560,fake,805257514799558657,Please fact-check before sharing things like this.,Positive,0.765,0.655,0.0,0.345
+politifact15030,fake,934217896355561473,"This Obama story is completely fabricated, there's no source.",Negative,-0.3535,0.0,0.235,0.765
+politifact15030,fake,934217896355561473,My uncle shared this exact fake Obama post last year too.,Negative,-0.1779,0.166,0.214,0.621
