@@ -416,6 +416,132 @@
         line-height: 1.4;
         margin-top: 12px;
       }
+
+      /* Auth (login / sign up) */
+      .auth-card {
+        position: relative;
+        z-index: 1;
+        background: var(--bg-card);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        padding: 16px;
+      }
+
+      .auth-title {
+        font-size: 15px;
+        font-weight: 800;
+        margin-bottom: 4px;
+      }
+
+      .auth-sub {
+        font-size: 11.5px;
+        color: var(--text-secondary);
+        margin-bottom: 14px;
+        line-height: 1.4;
+      }
+
+      .auth-tabs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px;
+        padding: 3px;
+        background: var(--bg-card-sub);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-sm);
+        margin-bottom: 14px;
+      }
+
+      .auth-tab {
+        border: none;
+        background: none;
+        color: var(--text-muted);
+        font-family: inherit;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 7px 0;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 140ms ease;
+      }
+
+      .auth-tab.active {
+        background: rgba(16, 185, 129, 0.15);
+        color: var(--accent-green);
+      }
+
+      .field {
+        margin-bottom: 11px;
+      }
+
+      .field label {
+        display: block;
+        font-size: 10.5px;
+        font-weight: 700;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        margin-bottom: 5px;
+      }
+
+      .field input {
+        width: 100%;
+        background: rgba(10, 14, 20, 0.8);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-sm);
+        padding: 10px 12px;
+        color: var(--text-primary);
+        font-family: inherit;
+        font-size: 13px;
+        transition: border-color 140ms ease, box-shadow 140ms ease;
+      }
+
+      .field input:focus {
+        outline: none;
+        border-color: var(--border-focus);
+        box-shadow: 0 0 0 3px var(--accent-green-glow);
+      }
+
+      .auth-hint {
+        font-size: 10.5px;
+        color: var(--text-muted);
+        margin-top: 4px;
+      }
+
+      .user-bar {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 12px;
+        font-size: 11px;
+        color: var(--text-muted);
+      }
+
+      .user-bar strong {
+        color: var(--text-secondary);
+        font-weight: 600;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .link-btn {
+        background: none;
+        border: none;
+        color: var(--accent-cyan);
+        font-family: inherit;
+        font-size: 11px;
+        font-weight: 600;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+
+      .link-btn:hover {
+        text-decoration: underline;
+      }
     </style>
   </head>
   <body>
@@ -439,6 +565,42 @@
         <span id="api-status-text">Connecting</span>
       </div>
     </header>
+
+    <!-- Login / Sign up (shown when signed out) -->
+    <section id="auth-view" class="auth-card" hidden>
+      <div class="auth-title" id="auth-title">Log in to continue</div>
+      <p class="auth-sub">You need an account to check whether a post is fake.</p>
+
+      <div class="auth-tabs" role="tablist">
+        <button id="tab-login" class="auth-tab active" type="button" role="tab" aria-selected="true">Log in</button>
+        <button id="tab-signup" class="auth-tab" type="button" role="tab" aria-selected="false">Sign up</button>
+      </div>
+
+      <form id="auth-form" novalidate>
+        <div class="field">
+          <label for="auth-email">Email</label>
+          <input id="auth-email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+          <label for="auth-password">Password</label>
+          <input id="auth-password" type="password" autocomplete="current-password" placeholder="••••••••" required>
+          <p id="auth-hint" class="auth-hint" hidden>At least 8 characters.</p>
+        </div>
+        <button id="auth-submit" class="btn-scan" type="submit">
+          <span class="spinner" id="auth-spinner"></span>
+          <span id="auth-label">Log in</span>
+        </button>
+      </form>
+
+      <div id="auth-error" class="error-card" role="alert"></div>
+    </section>
+
+    <!-- Detector (shown when signed in) -->
+    <div id="app-view" hidden>
+    <div class="user-bar">
+      <span>Signed in as <strong id="user-email"></strong></span>
+      <button id="logout-button" class="link-btn" type="button">Log out</button>
+    </div>
 
     <div class="context-card" id="context-card">
       <div class="context-header">
@@ -507,6 +669,7 @@
         <div class="analytics-row"><span>Real Confirmed:</span> <strong id="stat-real" style="color:var(--accent-green);">0</strong></div>
         <div class="analytics-row"><span>Fake Ratio:</span> <strong id="stat-ratio">0%</strong></div>
       </div>
+    </div>
     </div>
 
     <script src="popup.js"></script>

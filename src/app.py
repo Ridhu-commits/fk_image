@@ -12,13 +12,14 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
-from .database import get_db, PredictionLog
+from .auth import get_current_user, router as auth_router
+from .database import get_db, PredictionLog, User
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 MODEL_PATH = PROJECT_ROOT / "models" / "best_joint_model.keras"
 SCALER_PATH = PROJECT_ROOT / "models" / "propagation_scaler.pkl"
 TOKENIZER_PATH = PROJECT_ROOT / "models" / "text_tokenizer.pkl"
-DEMO_HTML_PATH = Path(__file__).resolve().parent / "demo.html"
+DEMO_HTML_PATH = PROJECT_ROOT / "web" / "index.html"
 
 PROPAGATION_TIMESTEPS = 5
 TEXT_MAX_LENGTH = 60
@@ -82,6 +83,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(auth_router)
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -147,7 +150,8 @@ def get_tokenizer(request: Request) -> Any:
 def predict(
     payload: PredictionRequest, 
     request: Request, 
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    _user: User = Depends(get_current_user),
 ) -> PredictionResponse:
     model: Any = get_model(request)
     scaler: Any = get_scaler(request)
@@ -251,7 +255,7 @@ def predict(
 
 
 @app.get("/analytics")
-def get_analytics(db: Session = Depends(get_db)):
+def get_analytics(db: Session = Depends(get_db), _user: User = Depends(get_current_user)):
     total_requests = db.query(PredictionLog).count()
     fake_count = db.query(PredictionLog).filter(PredictionLog.verdict == "Fake").count()
     real_count = db.query(PredictionLog).filter(PredictionLog.verdict == "Real").count()

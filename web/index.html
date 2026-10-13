@@ -420,6 +420,69 @@
       cursor: pointer;
       transition: all 160ms ease;
     }
+
+    /* Login Overlay */
+    .auth-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      background: rgba(4, 6, 10, 0.78);
+      backdrop-filter: blur(8px);
+    }
+    .auth-overlay[hidden] { display: none; }
+    .auth-box {
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 0;
+    }
+    .auth-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+      padding: 4px;
+      background: var(--bg-card-sub);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      margin-bottom: 18px;
+    }
+    .auth-tab {
+      border: none;
+      background: none;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 0;
+      border-radius: 9px;
+      cursor: pointer;
+    }
+    .auth-tab.active { background: rgba(16, 185, 129, 0.15); color: var(--emerald); }
+    .auth-error {
+      display: none;
+      margin-top: 14px;
+      padding: 11px 13px;
+      border-radius: 10px;
+      background: rgba(244, 63, 94, 0.1);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      color: #fda4af;
+      font-size: 12.5px;
+    }
+    .btn-logout {
+      background: none;
+      border: 1px solid var(--border-subtle);
+      border-radius: 9999px;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      cursor: pointer;
+    }
+    .btn-logout:hover { color: #fff; border-color: rgba(255, 255, 255, 0.25); }
+    .user-email { font-size: 12px; color: var(--text-muted); }
   </style>
 </head>
 <body>
@@ -439,6 +502,8 @@
         <span class="pulse-dot"></span>
         API Online | 90.91% Test Accuracy
       </span>
+      <span id="user-email" class="user-email"></span>
+      <button id="btn-logout" class="btn-logout" type="button" hidden>Log out</button>
     </div>
   </nav>
 
@@ -644,7 +709,128 @@
     </div>
   </main>
 
+  <!-- Login Overlay -->
+  <div id="auth-overlay" class="auth-overlay" hidden>
+    <div class="glass-card auth-box" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+      <div class="card-title">
+        <h2 id="auth-title"><span>🔐</span> Log in to continue</h2>
+      </div>
+      <div class="auth-tabs" role="tablist">
+        <button id="tab-login" class="auth-tab active" type="button" role="tab" aria-selected="true">Log in</button>
+        <button id="tab-signup" class="auth-tab" type="button" role="tab" aria-selected="false">Sign up</button>
+      </div>
+      <form id="auth-form" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="auth-email">Email</label>
+          <input id="auth-email" class="form-input" type="email" autocomplete="email" placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="auth-password">Password</label>
+          <input id="auth-password" class="form-input" type="password" autocomplete="current-password" placeholder="At least 8 characters">
+        </div>
+        <button type="submit" class="btn-primary" id="auth-submit">Log in</button>
+      </form>
+      <div id="auth-error" class="auth-error" role="alert"></div>
+    </div>
+  </div>
+
   <script>
+    // ---------- Login ----------
+    const TOKEN_KEY = "fid-auth";
+    let authMode = "login";
+
+    function getAuth() {
+      try { return JSON.parse(localStorage.getItem(TOKEN_KEY)); } catch (_) { return null; }
+    }
+    function saveAuth(data) {
+      try { localStorage.setItem(TOKEN_KEY, JSON.stringify({ token: data.token, email: data.email })); } catch (_) {}
+    }
+    function clearAuth() {
+      try { localStorage.removeItem(TOKEN_KEY); } catch (_) {}
+    }
+    function authHeaders() {
+      const auth = getAuth();
+      return auth ? { Authorization: `Bearer ${auth.token}` } : {};
+    }
+
+    function showLogin(message) {
+      document.getElementById("auth-overlay").hidden = false;
+      document.getElementById("btn-logout").hidden = true;
+      document.getElementById("user-email").textContent = "";
+      const err = document.getElementById("auth-error");
+      err.textContent = message || "";
+      err.style.display = message ? "block" : "none";
+      document.getElementById("auth-email").focus();
+    }
+    function showApp(email) {
+      document.getElementById("auth-overlay").hidden = true;
+      document.getElementById("btn-logout").hidden = false;
+      document.getElementById("user-email").textContent = email;
+    }
+
+    function setAuthMode(mode) {
+      authMode = mode;
+      const isLogin = mode === "login";
+      document.getElementById("tab-login").classList.toggle("active", isLogin);
+      document.getElementById("tab-signup").classList.toggle("active", !isLogin);
+      document.getElementById("tab-login").setAttribute("aria-selected", String(isLogin));
+      document.getElementById("tab-signup").setAttribute("aria-selected", String(!isLogin));
+      document.getElementById("auth-title").innerHTML = isLogin
+        ? "<span>🔐</span> Log in to continue"
+        : "<span>🔐</span> Create your account";
+      document.getElementById("auth-submit").textContent = isLogin ? "Log in" : "Create account";
+      document.getElementById("auth-password").autocomplete = isLogin ? "current-password" : "new-password";
+      document.getElementById("auth-error").style.display = "none";
+    }
+
+    document.getElementById("tab-login").addEventListener("click", () => setAuthMode("login"));
+    document.getElementById("tab-signup").addEventListener("click", () => setAuthMode("signup"));
+
+    document.getElementById("auth-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById("auth-submit");
+      const err = document.getElementById("auth-error");
+      err.style.display = "none";
+      btn.disabled = true;
+      try {
+        const res = await fetch(`/auth/${authMode}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: document.getElementById("auth-email").value.trim(),
+            password: document.getElementById("auth-password").value
+          })
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          throw new Error(typeof data.detail === "string" ? data.detail : "Something went wrong. Please try again.");
+        }
+        saveAuth(data);
+        document.getElementById("auth-password").value = "";
+        showApp(data.email);
+        loadAnalytics();
+        runInference();
+      } catch (error) {
+        err.textContent = error.message === "Failed to fetch" ? "Could not reach the server." : error.message;
+        err.style.display = "block";
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    document.getElementById("btn-logout").addEventListener("click", async () => {
+      await fetch("/auth/logout", { method: "POST", headers: authHeaders() }).catch(() => {});
+      clearAuth();
+      setAuthMode("login");
+      showLogin();
+    });
+
+    function handleUnauthorized() {
+      clearAuth();
+      showLogin("Your session has expired. Please log in again.");
+    }
+
+    // ---------- Detector ----------
     const presets = {
       real: {
         id: "politifact_verified_101",
@@ -710,7 +896,8 @@
 
     async function loadAnalytics() {
       try {
-        const res = await fetch("/analytics");
+        const res = await fetch("/analytics", { headers: authHeaders() });
+        if (res.status === 401) return handleUnauthorized();
         const data = await res.json();
         document.getElementById("stat-total").textContent = data.total_requests || 0;
         document.getElementById("stat-fake").textContent = data.fake_requests || 0;
@@ -744,9 +931,10 @@
       try {
         const res = await fetch("/predict", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json", ...authHeaders() },
           body: JSON.stringify(payload)
         });
+        if (res.status === 401) return handleUnauthorized();
         const data = await res.json();
         renderResult(data);
         loadAnalytics();
@@ -798,9 +986,16 @@
       runInference();
     });
 
-    // Run initial inference on page load
-    loadAnalytics();
-    runInference();
+    // Run initial inference on page load (only once logged in)
+    (async () => {
+      const auth = getAuth();
+      if (!auth) return showLogin();
+      const res = await fetch("/auth/me", { headers: authHeaders() }).catch(() => null);
+      if (!res || !res.ok) return showLogin(res ? "Your session has expired. Please log in again." : "");
+      showApp(auth.email);
+      loadAnalytics();
+      runInference();
+    })();
   </script>
 </body>
 </html>

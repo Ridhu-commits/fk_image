@@ -20,6 +20,99 @@ document.addEventListener("DOMContentLoaded", async () => {
   const toggleAnalyticsBtn = document.getElementById("toggle-analytics");
   const analyticsBox = document.getElementById("analytics-box");
   const drawerArrow = document.getElementById("drawer-arrow");
+  const authView = document.getElementById("auth-view");
+  const appView = document.getElementById("app-view");
+  const authForm = document.getElementById("auth-form");
+  const authTitle = document.getElementById("auth-title");
+  const authEmail = document.getElementById("auth-email");
+  const authPassword = document.getElementById("auth-password");
+  const authHint = document.getElementById("auth-hint");
+  const authSubmit = document.getElementById("auth-submit");
+  const authSpinner = document.getElementById("auth-spinner");
+  const authLabel = document.getElementById("auth-label");
+  const authError = document.getElementById("auth-error");
+  const tabLogin = document.getElementById("tab-login");
+  const tabSignup = document.getElementById("tab-signup");
+  const userEmail = document.getElementById("user-email");
+  const logoutButton = document.getElementById("logout-button");
+
+  let authMode = "login";
+
+  // 0. Login / Sign up
+  function setAuthMode(mode) {
+    authMode = mode;
+    const isLogin = mode === "login";
+    tabLogin.classList.toggle("active", isLogin);
+    tabSignup.classList.toggle("active", !isLogin);
+    tabLogin.setAttribute("aria-selected", String(isLogin));
+    tabSignup.setAttribute("aria-selected", String(!isLogin));
+    authTitle.textContent = isLogin ? "Log in to continue" : "Create your account";
+    authLabel.textContent = isLogin ? "Log in" : "Create account";
+    authPassword.autocomplete = isLogin ? "current-password" : "new-password";
+    authHint.hidden = isLogin;
+    authError.style.display = "none";
+  }
+
+  function showAuthView(message) {
+    appView.hidden = true;
+    authView.hidden = false;
+    if (message) {
+      authError.textContent = message;
+      authError.style.display = "block";
+    }
+    authEmail.focus();
+  }
+
+  async function showAppView(email) {
+    authView.hidden = true;
+    appView.hidden = false;
+    userEmail.textContent = email;
+    await inspectActiveTab();
+  }
+
+  tabLogin.addEventListener("click", () => setAuthMode("login"));
+  tabSignup.addEventListener("click", () => setAuthMode("signup"));
+
+  authForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    authError.style.display = "none";
+
+    const email = authEmail.value.trim();
+    const password = authPassword.value;
+    if (!email || !password) {
+      authError.textContent = "Please enter your email and password.";
+      authError.style.display = "block";
+      return;
+    }
+
+    authSubmit.disabled = true;
+    authSpinner.style.display = "inline-block";
+    try {
+      const response = await chrome.runtime.sendMessage({
+        type: authMode === "login" ? "LOGIN" : "SIGNUP",
+        email,
+        password,
+      });
+      if (!response?.ok) {
+        throw new Error(response?.error || "Something went wrong. Please try again.");
+      }
+      authPassword.value = "";
+      await showAppView(response.email);
+    } catch (err) {
+      authError.textContent = err.message;
+      authError.style.display = "block";
+    } finally {
+      authSubmit.disabled = false;
+      authSpinner.style.display = "none";
+    }
+  });
+
+  logoutButton.addEventListener("click", async () => {
+    await chrome.runtime.sendMessage({ type: "LOGOUT" }).catch(() => null);
+    resultSection.style.display = "none";
+    setAuthMode("login");
+    showAuthView();
+  });
 
   // 1. Check API Health
   async function checkBackendHealth() {
@@ -75,6 +168,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   async function loadAnalytics() {
     try {
       const response = await chrome.runtime.sendMessage({ type: "GET_ANALYTICS" });
+      if (response?.authRequired) {
+        showAuthView(response.error);
+        return;
+      }
       if (response?.ok && response.data) {
         const d = response.data;
         document.getElementById("stat-total").textContent = d.total_requests ?? 0;
@@ -100,6 +197,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
 
       const response = await chrome.tabs.sendMessage(tab.id, { type: "CHECK_POST" });
+
+      if (response?.authRequired) {
+        showAuthView(response.error);
+        return;
+      }
 
       if (!response?.ok) {
         throw new Error(response?.error || "Inference failed. Check if FastAPI is running.");
@@ -172,5 +274,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Run initial checks
   await checkBackendHealth();
-  await inspectActiveTab();
+  const auth = await chrome.runtime.sendMessage({ type: "GET_AUTH" }).catch(() => null);
+  if (auth?.loggedIn) {
+    await showAppView(auth.email);
+  } else {
+    showAuthView();
+  }
 });

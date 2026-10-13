@@ -102,10 +102,22 @@
   }
 
   // 7. Feature Extraction: Comment Texts (Thread Replies)
+  // Replies only exist on a post's own page (/status/<id>), below the focal tweet.
+  // On the home feed the other tweets are unrelated posts, so they must not be
+  // sent as "comments" — the model would then judge them instead of this post.
+  function isFocalArticle(article) {
+    const statusId = location.pathname.match(/\/status\/(\d+)/)?.[1];
+    return Boolean(statusId && article && getPostArticle() === article);
+  }
+
   function extractComments(mainArticle) {
+    if (!isFocalArticle(mainArticle)) return [];
     const allArticles = [...document.querySelectorAll('article[data-testid="tweet"]')];
     return allArticles
-      .filter((article) => article !== mainArticle)
+      .filter((article) =>
+        article !== mainArticle &&
+        Boolean(mainArticle.compareDocumentPosition(article) & Node.DOCUMENT_POSITION_FOLLOWING)
+      )
       .map((article) => article.querySelector('[data-testid="tweetText"]')?.innerText?.trim())
       .filter((text) => Boolean(text && text.length > 0));
   }
@@ -196,39 +208,185 @@
       button.style.borderColor = "rgba(16, 185, 129, 0.35)";
     });
 
-    button.addEventListener("click", async (e) => {
+    button.addEventListener("click", (e) => {
       e.stopPropagation();
       e.preventDefault();
-
-      button.disabled = true;
-      button.innerText = "Analyzing post…";
-      button.style.opacity = "0.75";
-
-      try {
-        const payload = extractPayload(article);
-        const response = await chrome.runtime.sendMessage({ type: "PREDICT", payload });
-
-        if (!response || !response.ok) {
-          throw new Error(response?.error || "Analysis failed");
-        }
-
-        renderVerdictBadge(badgeContainer, response.data);
-      } catch (err) {
-        button.innerText = "Verification failed";
-        button.style.color = "#ef4444";
-        button.style.borderColor = "rgba(239, 68, 68, 0.4)";
-        button.disabled = false;
-        setTimeout(() => {
-          button.innerHTML = `<span>Verify Post</span>`;
-          button.style.color = "#10b981";
-          button.style.borderColor = "rgba(16, 185, 129, 0.35)";
-        }, 3000);
+      if (badgeContainer.dataset.state === "login") {
+        chrome.runtime.sendMessage({ type: "OPEN_LOGIN" }).catch(() => {});
+        return;
       }
+      verifyArticle(article);
     });
 
     badgeContainer.appendChild(button);
     actionBar.parentElement.insertBefore(badgeContainer, actionBar);
+    autoCheckObserver.observe(article);
   }
+
+  function setButtonState(container, state, label, title = "") {
+    const button = container.querySelector(".fid-verify-btn");
+    container.dataset.state = state;
+    if (!button) return;
+    const colors = {
+      idle: ["#10b981", "rgba(16, 185, 129, 0.35)"],
+      checking: ["#10b981", "rgba(16, 185, 129, 0.35)"],
+      login: ["#06b6d4", "rgba(6, 182, 212, 0.4)"],
+      error: ["#ef4444", "rgba(239, 68, 68, 0.4)"],
+    }[state];
+    button.innerText = label;
+    button.title = title;
+    button.disabled = state === "checking";
+    button.style.opacity = state === "checking" ? "0.75" : "1";
+    button.style.color = colors[0];
+    button.style.borderColor = colors[1];
+  }
+
+  // Analyze one post and show the verdict badge on it (used by auto-scan and by clicks)
+  async function verifyArticle(article) {
+    const container = article.querySelector(`.${BADGE_CLASS}`);
+    if (!container || container.dataset.state === "checking" || container.dataset.state === "done") return;
+
+    setButtonState(container, "checking", "Analyzing post…");
+    try {
+      const payload = extractPayload(article);
+      const response = await chrome.runtime.sendMessage({ type: "PREDICT", payload });
+
+      if (response?.authRequired) {
+        setButtonState(container, "login", "Log in to see verdict", response.error);
+        return;
+      }
+      if (!response || !response.ok) {
+        throw new Error(response?.error || "Analysis failed");
+      }
+
+      container.dataset.state = "done";
+      renderVerdictBadge(container, response.data);
+      markMedia(article, response.data);
+      window.FIDPanel?.record({
+        id: payload.tweet_id,
+        verdict: response.data.verdict,
+        confidence: response.data.confidence,
+        author: article.querySelector('[data-testid="User-Name"]')?.innerText.match(/@\w+/)?.[0] || "",
+        text: payload.tweet_text.slice(0, 120),
+        hasMedia: Boolean(article.querySelector(MEDIA_SELECTOR)),
+      });
+    } catch (err) {
+      setButtonState(container, "error", "Retry verification", err.message || "Analysis failed");
+    }
+  }
+
+  // ============================================================
+  // AUTO-CHECK WHILE SCROLLING
+  // ============================================================
+  const MAX_PARALLEL_CHECKS = 2;
+  const FOCAL_POST_DELAY_MS = 1500; // let replies load before judging the main post
+  const checkQueue = [];
+  let activeChecks = 0;
+
+  function runQueue() {
+    while (activeChecks < MAX_PARALLEL_CHECKS && checkQueue.length) {
+      const article = checkQueue.shift();
+      if (!article.isConnected) continue;
+      activeChecks += 1;
+      verifyArticle(article).finally(() => {
+        activeChecks -= 1;
+        runQueue();
+      });
+    }
+  }
+
+  function queueCheck(article) {
+    if (article.dataset.fidQueued) return;
+    article.dataset.fidQueued = "1";
+    const delay = isFocalArticle(article) ? FOCAL_POST_DELAY_MS : 0;
+    setTimeout(() => {
+      checkQueue.push(article);
+      runQueue();
+    }, delay);
+  }
+
+  const autoCheckObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        autoCheckObserver.unobserve(entry.target);
+        queueCheck(entry.target);
+      });
+    },
+    { threshold: 0.4 }
+  );
+
+  // ============================================================
+  // VERDICT LABELS ON IMAGES / VIDEOS
+  // ============================================================
+  const MEDIA_SELECTOR = '[data-testid="tweetPhoto"], [data-testid="videoPlayer"]';
+  const MEDIA_CHIP_CLASS = "fid-media-chip";
+
+  function markMedia(article, data) {
+    const isReal = data.verdict === "Real";
+    const color = isReal ? "#10b981" : "#ef4444";
+    const label = `${isReal ? "✓ REAL" : "⚠ FAKE"} ${Number(data.confidence || 0).toFixed(0)}%`;
+
+    article.querySelectorAll(MEDIA_SELECTOR).forEach((media) => {
+      media.querySelector(`.${MEDIA_CHIP_CLASS}`)?.remove();
+      if (getComputedStyle(media).position === "static") media.style.position = "relative";
+      media.style.outline = `3px solid ${color}`;
+      media.style.outlineOffset = "-3px";
+
+      const chip = document.createElement("div");
+      chip.className = MEDIA_CHIP_CLASS;
+      chip.textContent = label;
+      chip.title = "Fake Image Detector verdict for this post";
+      chip.style.cssText = `
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        z-index: 2;
+        padding: 3px 9px;
+        border-radius: 9999px;
+        background: ${color};
+        color: #fff;
+        font: 800 11.5px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        letter-spacing: 0.3px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+        pointer-events: none;
+      `;
+      media.appendChild(chip);
+    });
+  }
+
+  function clearAllVerdicts() {
+    document.querySelectorAll(`.${MEDIA_CHIP_CLASS}`).forEach((chip) => {
+      const media = chip.parentElement;
+      chip.remove();
+      if (media) media.style.outline = "";
+    });
+    document.querySelectorAll(`.${BADGE_CLASS}`).forEach((container) => {
+      const article = container.closest('article[data-testid="tweet"]');
+      container.remove();
+      if (article) delete article.dataset.fidQueued;
+    });
+    scanAndInject();
+  }
+
+  chrome.storage.onChanged.addListener((changes, area) => {
+    if (area !== "local" || !("auth" in changes)) return;
+
+    // Logged out: hide every verdict until the user logs in again
+    if (!changes.auth.newValue) {
+      clearAllVerdicts();
+      return;
+    }
+
+    // Logged in: check the posts that were waiting for login
+    document.querySelectorAll(`.${BADGE_CLASS}[data-state="login"]`).forEach((container) => {
+      const article = container.closest('article[data-testid="tweet"]');
+      if (!article) return;
+      setButtonState(container, "idle", "Verify Post");
+      delete article.dataset.fidQueued;
+      queueCheck(article);
+    });
+  });
 
   function renderVerdictBadge(container, data) {
     const isReal = data.verdict === "Real";

@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+
+# Runtime artifacts
+predictions.db
+data/raw/scraped_live.csv
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

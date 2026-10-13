@@ -1,0 +1,14 @@
+.git
+.gitignore
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+predictions.db
+extension/
+tests/
+data/
+outputs/
+src/pipeline/
+.DS_Store
